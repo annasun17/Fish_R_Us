@@ -84,7 +84,7 @@ include('header.php');
                           <button class="btn btn-sm btn-outline-secondary"><a href="product.php">View</a></button>
                           <button class="btn btn-sm btn-outline-secondary"><a href="#">Add to Cart</a></button>
                         </div>
-                        <small class="text-muted">$29.99</small>
+                        <small class="text-muted">$row[sales_price]</small>
                       </div>
                     </div>
                   </div>

@@ -8,7 +8,7 @@ include('header.php');
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="shop.php">
+              <a class="nav-link" href="shop.php">
                 <span data-feather="bar-chart-2"></span>
                 All
               </a>
@@ -32,7 +32,7 @@ include('header.php');
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="products-supplies.php">
+              <a class="nav-link active" href="products-supplies.php">
                 <span data-feather="shopping-cart"></span>
                 Supplies
               </a>
@@ -44,7 +44,7 @@ include('header.php');
       <main class="checkout col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">All Products</h1>
+          <h1 class="h2">Supplies</h1>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
               <button type="button" class="btn btn-sm btn-outline-secondary">Favorites</button>
@@ -70,7 +70,7 @@ include('header.php');
 							require_once 'config.php';
 							$conn = new mysqli($hn, $un, $pw, $db);
 							if($conn->connect_error) die($conn->connect_error);
-							$query="SELECT * FROM product";
+							$query="SELECT * FROM product WHERE product_type='Supplies'";
 							$result = $conn->query($query);
 							if(!$result) die($conn->error);
 							$rows = $result->num_rows;

@@ -17,7 +17,7 @@ include('header.php');
             <div class="carousel-caption">
               <h1>FISH R US</h1>
               <p>Your one stop shop for all things fishy</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#About">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@ include('header.php');
             <div class="carousel-caption text-start">
               <h1>FISH R US</h1>
               <p>Your one stop shop for all things fishy</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#About">Sign up today</a></p>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@ include('header.php');
           <div class="container">
             <div class="carousel-caption text-end">
               <h1>Don't be koi, come visit us!</h1>
-              <p><a class="btn btn-lg btn-primary" href="#">Our Locations</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#About">Our Locations</a></p>
             </div>
           </div>
         </div>
@@ -59,24 +59,24 @@ include('header.php');
           <h2>Fish</h2>
           <p style="height:90px;">Some representative placeholder content for the three columns of text below the carousel. This is the first
             column.</p>
-          <p><a class="btn btn-secondary" href="shop.php">View details</a></p>
+          <p><a class="btn btn-secondary" href="products-fish.php">Shop Fish</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img src="../images/aquarium-icon.png" style="width:120px;height:120px;">
           <h2>Aquariums</h2>
           <p style="height:90px;">Another exciting bit of representative placeholder content. This time, we've moved on to the second column.
           </p>
-          <p><a class="btn btn-secondary" href="shop.php">View details</a></p>
+          <p><a class="btn btn-secondary" href="products-aquariums.php">Shop Aquariums</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img src="../images/fish-icon.png" style="width:120px;height:120px;">
           <h2>Supplies</h2>
           <p style="height:90px;">And lastly this, the third column of representative placeholder content.</p>
-          <p><a class="btn btn-secondary" href="shop.php">View details</a></p>
+          <p><a class="btn btn-secondary" href="products-supplies.php">Shop Supplies</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
-      <hr class="featurette-divider">
+      <hr class="featurette-divider" id="About">
       <div class="row featurette">
         <div class="col-md-7">
           <h2>About Us</h2>

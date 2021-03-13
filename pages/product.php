@@ -31,28 +31,27 @@ include('header.php');
                 Supplies
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="users"></span>
-                Tank Accessories
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Vendors
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Stores
-              </a>
-            </li>
           </ul>
         </div>
       </nav>
 
+      <?php
+      require_once  'config.php';
+
+      $conn = new mysqli($hn, $un, $pw, $db);
+      if($conn->connect_error) die($conn->connect_error);
+
+      if(isset($_GET['product_id'])) {
+        
+      $id = $_GET['product_id'];	
+
+      $query = "SELECT * FROM product where product_id=$id ";
+
+      $result = $conn->query($query); 
+      if(!$result) die($conn->error);
+      $row = $result->fetch_array(MYSQLI_ASSOC); 
+
+      echo <<<_END
       <main class="checkout col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="product col-md-10">
           <div class="col-md-6 product-img">
@@ -63,8 +62,8 @@ include('header.php');
             </div>
           </div>
           <div class="col-md-5 product-desc">
-            <h2 class="product-title">Really Awesome Product</h2>
-            <div class="price">$29.99</div>
+            <h2 class="product-title">$row[product_name]</h2>
+            <div class="price">$row[product_price]</div>
             <div class="flex-wrap align-items-center pt-4 pb-2 mb-3">
               <select class="form-select me-3 mb-3" style="width: 5rem;">
                 <option value="1">1</option>
@@ -76,7 +75,7 @@ include('header.php');
               <p><a class="btn btn-primary" href="shop.php">Add to Cart</a></p>
             </div>
             <ul class="desc">
-              <li>no really, it's super rad</li>
+              <li>$row[product_desc]</li>
               <li>seriously tho, buy it</li>
               <li>it cleans itself</li>
               <li>made of grade AAA premium glass</li>
@@ -84,6 +83,10 @@ include('header.php');
           </div>
         </div>
       </main>
+      _END;
+      }
+      $conn->close();
+      ?>
     </div>
   </div>
 

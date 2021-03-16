@@ -95,118 +95,24 @@ include('header.php');
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1,001</td>
-                <td>2021-01-02</td>
-                <td>10023</td>
-                <td>John Smith</td>
-                <td>Salt Lake</td>
-              </tr>
-              <tr>
-                <td>1,002</td>
-                <td>placeholder</td>
-                <td>irrelevant</td>
-                <td>visual</td>
-                <td>layout</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>data</td>
-                <td>rich</td>
-                <td>dashboard</td>
-                <td>tabular</td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>information</td>
-                <td>placeholder</td>
-                <td>illustrative</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,004</td>
-                <td>text</td>
-                <td>random</td>
-                <td>layout</td>
-                <td>dashboard</td>
-              </tr>
-              <tr>
-                <td>1,005</td>
-                <td>dashboard</td>
-                <td>irrelevant</td>
-                <td>text</td>
-                <td>placeholder</td>
-              </tr>
-              <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,007</td>
-                <td>placeholder</td>
-                <td>tabular</td>
-                <td>information</td>
-                <td>irrelevant</td>
-              </tr>
-              <tr>
-                <td>1,008</td>
-                <td>random</td>
-                <td>data</td>
-                <td>placeholder</td>
-                <td>text</td>
-              </tr>
-              <tr>
-                <td>1,009</td>
-                <td>placeholder</td>
-                <td>irrelevant</td>
-                <td>visual</td>
-                <td>layout</td>
-              </tr>
-              <tr>
-                <td>1,010</td>
-                <td>data</td>
-                <td>rich</td>
-                <td>dashboard</td>
-                <td>tabular</td>
-              </tr>
-              <tr>
-                <td>1,011</td>
-                <td>information</td>
-                <td>placeholder</td>
-                <td>illustrative</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,012</td>
-                <td>text</td>
-                <td>placeholder</td>
-                <td>layout</td>
-                <td>dashboard</td>
-              </tr>
-              <tr>
-                <td>1,013</td>
-                <td>dashboard</td>
-                <td>irrelevant</td>
-                <td>text</td>
-                <td>visual</td>
-              </tr>
-              <tr>
-                <td>1,014</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-              </tr>
-              <tr>
-                <td>1,015</td>
-                <td>random</td>
-                <td>tabular</td>
-                <td>information</td>
-                <td>text</td>
-              </tr>
+<?php
+require_once 'login2.php';
+
+$conn = new mysqli($hn, $un, $pw, $db);
+if($conn->connect_error) die ($conn->connect_error);
+
+$query = "SELECT customer_id, employee_id, store_id, purchase_date, order_id, invoice_id FROM saleorder";
+
+$result = $conn->query($query);
+if(!$result) die ($conn->error);
+
+while($row = $result->fetch_assoc()){
+
+echo "<tr><td>". $row["customer_id"]. "</td><td>".$row["employee_id"]. "</td><td>".$row["store_id"]. "</td><td>".
+$row["purchase_date"]. "</td><td>".$row["order_id"]."</td><td>".$row["invoice_id"]. "</td><tr>";
+}
+echo "</table>";
+?>              
             </tbody>
           </table>
         </div>
@@ -275,11 +181,11 @@ echo "</table>";
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th>Inventory ID</th>
+                <th>Order ID</th>
+                <th>Date</th>
                 <th>Product ID</th>
-                <th>Store ID</th>
-                <th>Stock Date</th>
-                <th>Stock Quantity</th>
+                <th>Employee</th>
+                <th>Store</th>
               </tr>
             </thead>
             <tbody>
@@ -302,6 +208,98 @@ $row["stock_date"]. "</td><td>".$row["stock_quantity"]. "</td><tr>";
 echo "</table>";
 ?>
               
+            </tbody>
+          </table>
+        </div>
+
+        <div id="vendors" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h2>Stores</h2>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary" name="ok">Edit</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+              <span data-feather="calendar"></span>
+              Sort By
+            </button>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>Vendor ID</th>
+                <th>Vendor Name</th>
+                <th>Vendor Address</th>
+              </tr>
+            </thead>
+            <tbody>
+<?php
+require_once 'login2.php';
+
+$conn = new mysqli($hn, $un, $pw, $db);
+if($conn->connect_error) die ($conn->connect_error);
+
+$query = "SELECT vendor_id, vendor_name, vendor_address FROM vendor";
+
+$result = $conn->query($query);
+if(!$result) die ($conn->error);
+
+while($row = $result->fetch_assoc()){
+
+echo "<tr><td>". $row["vendor_id"]. "</td><td>".$row["vendor_name"]. "</td><td>".$row["vendor_address"]. "</td><tr>";
+}
+echo "</table>";
+?>
+       
+            </tbody>
+          </table>
+        </div>
+
+        <div id="stores" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h2>Stores</h2>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary" name="ok">Edit</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+              <span data-feather="calendar"></span>
+              Sort By
+            </button>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>Store ID</th>
+                <th>Store Address</th>
+                <th>Store Hours</th>
+                <th>Store Type</th>
+              </tr>
+            </thead>
+            <tbody>
+<?php
+require_once 'login2.php';
+
+$conn = new mysqli($hn, $un, $pw, $db);
+if($conn->connect_error) die ($conn->connect_error);
+
+$query = "SELECT store_id, store_address, store_hours, store_type FROM store";
+
+$result = $conn->query($query);
+if(!$result) die ($conn->error);
+
+while($row = $result->fetch_assoc()){
+
+echo "<tr><td>". $row["store_id"]. "</td><td>".$row["store_address"]. "</td><td>".$row["store_hours"]. "</td><td>".
+$row["store_type"]. "</td><tr>";
+}
+echo "</table>";
+?>
+       
             </tbody>
           </table>
         </div>

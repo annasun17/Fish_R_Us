@@ -87,11 +87,12 @@ include('header.php');
           <table class="table table-striped table-sm">
             <thead>
               <tr>
+                <th>Customer ID</th>
+                <th>Employee ID</th>
+                <th>Store ID</th>
+                <th>Purchase Date</th>
                 <th>Order ID</th>
-                <th>Date</th>
-                <th>Product ID</th>
-                <th>Employee</th>
-                <th>Store</th>
+                <th>Invoice ID</th>
               </tr>
             </thead>
             <tbody>
@@ -181,11 +182,11 @@ echo "</table>";
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th>Order ID</th>
-                <th>Date</th>
+                <th>Inventory ID</th>
                 <th>Product ID</th>
-                <th>Employee</th>
-                <th>Store</th>
+                <th>Store ID</th>
+                <th>Stock Date</th>
+                <th>Stock Quantity</th>
               </tr>
             </thead>
             <tbody>
@@ -213,7 +214,7 @@ echo "</table>";
         </div>
 
         <div id="vendors" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h2>Stores</h2>
+          <h2>Vendors</h2>
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
               <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>

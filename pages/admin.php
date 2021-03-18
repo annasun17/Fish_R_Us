@@ -2,6 +2,7 @@
 
 $page_roles = array('admin');
 require_once 'checksession.php';
+require_once 'login2.php';
 
 include('header.php');
 
@@ -102,8 +103,6 @@ include('header.php');
             </thead>
             <tbody>
 <?php
-require_once 'login2.php';
-
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die ($conn->connect_error);
 
@@ -149,8 +148,6 @@ echo "</table>";
             </thead>
             <tbody>
 <?php
-require_once 'login2.php';
-
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die ($conn->connect_error);
 
@@ -196,8 +193,6 @@ echo "</table>";
             </thead>
             <tbody>
 <?php
-require_once 'login2.php';
-
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die ($conn->connect_error);
 
@@ -242,8 +237,6 @@ echo "</table>";
             </thead>
             <tbody>
 <?php
-require_once 'login2.php';
-
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die ($conn->connect_error);
 
@@ -288,8 +281,6 @@ echo "</table>";
             </thead>
             <tbody>
 <?php
-require_once 'login2.php';
-
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die ($conn->connect_error);
 
@@ -336,8 +327,6 @@ echo "</table>";
             </thead>
             <tbody>
 <?php
-require_once 'login2.php';
-
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die ($conn->connect_error);
 

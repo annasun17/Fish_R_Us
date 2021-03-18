@@ -2,7 +2,7 @@
 
 $page_roles = array('admin');
 require_once 'checksession.php';
-require_once 'login2.php';
+require_once 'config.php';
 
 include('header.php');
 

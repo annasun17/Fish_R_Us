@@ -27,4 +27,6 @@ if($_SESSION['user'])
 				header("Location: unauthorized.php");
 			}
 
+	}
+
 ?>

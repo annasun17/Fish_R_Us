@@ -49,8 +49,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		session_start();
 		$_SESSION['user'] = $user;
 
-		//This line needs to be the page to forward to, not checksession
-		echo "<a href='checksession.php'> Continue </a>";
+		header("Location: shop.php");
 	}
 	else
 	{

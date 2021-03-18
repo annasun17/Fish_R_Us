@@ -63,7 +63,7 @@ include('header.php');
           </div>
           <div class="col-md-5 product-desc">
             <h2 class="product-title">$row[product_name]</h2>
-            <div class="price">$row[product_price]</div>
+            <div class="price">$row[sales_price]</div>
             <div class="flex-wrap align-items-center pt-4 pb-2 mb-3">
               <select class="form-select me-3 mb-3" style="width: 5rem;">
                 <option value="1">1</option>

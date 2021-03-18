@@ -1,5 +1,10 @@
 <?php
+
+$page_roles = array('admin');
+require_once 'checksession.php';
+
 include('header.php');
+
 ?>
 
   <div class="container-fluid">

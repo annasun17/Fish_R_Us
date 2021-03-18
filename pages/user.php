@@ -15,23 +15,26 @@ class User{
 				
 		$this->username = $username;
 		
-		$query="select role from credential where user_id ='$username' ";
+		$query="select * from credential where user_id ='$username' ";
 		//echo $query.'<br>';  //for testing only
 		
 		$result = $conn->query($query);
 		if(!$result) die($conn->error);
 			
-		$rows = $result->num_rows;		
+		$rows = $result->num_rows;
 		
+		$role = Array();
 		for($i=0; $i<$rows; $i++){
 			$row = $result->fetch_array(MYSQLI_ASSOC);
-			$role = $row['role'];
-			array_push($this->role, $role);  //this is the correct code to add each role to the array
-		}				
-		
+			//echo $row['role']; echo '<br>';
+			$role[] = $row['role'];
+		}	
+					
+		$this->role = $role;
 	}
 
-	function getRoles(){
+	function getRoles()
+	{
 		return $this->role;
 	}
 

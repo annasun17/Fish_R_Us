@@ -4,29 +4,35 @@ require_once 'user.php';
 
 session_start();
 
+if(!isset($_SESSION['user']))
+{
+	header("Location: authenticate.php");
+}
+
 if($_SESSION['user'])
 	{
 		$user = $_SESSION['user'];
 		$username = $user->username;
-		$user_roles = $getRoles();
+		$user_roles = $user->getRoles();
 		
-		$found=0;
-		foreach ($user_roles as $urole);
+		$found = 0;
+		foreach ($user_roles as $urole)
 			{
-			foreach($page_roles as $prole)
+			foreach ($page_roles as $prole)
 				{
-					if($urole==$prole)
+					if($urole == $prole)
 						{
-							$found=1;
+							$found = 1;
 						}
 				}
 			}
 			
-		if(!found)
+		if(!$found)
 			{
 				header("Location: unauthorized.php");
 			}
 
 	}
+	
 
 ?>

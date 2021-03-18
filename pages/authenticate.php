@@ -11,7 +11,7 @@
 
 <?php
 
-require_once 'login2.php';
+require_once 'config.php';
 require_once 'user.php';
 
 $conn = new mysqli($hn, $un, $pw, $db);

@@ -1,3 +1,9 @@
+<?php
+$page_roles = array('admin', 'user');
+require_once 'checksession.php';
+require_once 'config.php';
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -30,25 +36,34 @@
             <li class="nav-item">
               <a class="nav-link" href="shop.php">Shop</a>
             </li>
+        <?php
+        if (in_array('admin', $user_roles)) {
+            echo '
             <li class="nav-item">
               <a class="nav-link" href="admin.php">Admin</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                User
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Account Details</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-              </ul>
-            </li>
+            </li>';
+            } else {
+              echo '';
+            }
+        ?>
           </ul>
           <form class="d-flex">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <?php
+                    echo 'Welcome, '.$username;
+                  ?>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Account Details</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="login.php">Logout</a></li>
+                </ul>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="cart.php">Shopping Cart (2)</a>
               </li>

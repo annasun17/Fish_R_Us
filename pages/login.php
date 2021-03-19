@@ -16,8 +16,9 @@
     <form class="form-signin" method="POST" action="login.php">
       <img class="mb-4" src="../images/fish-logo.png" alt="" width="100" height="100">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <input type="text" id="username" name ="username" class="form-control" placeholder="User name" required autofocus>
-      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+      <input type="text" id="username" class="form-control" placeholder="User name" name ="username" required autofocus>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me

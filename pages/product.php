@@ -62,7 +62,8 @@ include('header.php');
             </div>
           </div>
           <div class="col-md-5 product-desc">
-            <h2 class="product-title">$row[product_name]</h2>
+            
+          <h2 class="product-title">$row[product_name]</h2>
             <div class="price">$row[sales_price]</div>
             <div class="flex-wrap align-items-center pt-4 pb-2 mb-3">
               <select class="form-select me-3 mb-3" style="width: 5rem;">
@@ -74,12 +75,8 @@ include('header.php');
               </select>
               <p><a class="btn btn-primary" href="shop.php">Add to Cart</a></p>
             </div>
-            <ul class="desc">
-              <li>$row[product_desc]</li>
-              <li>seriously tho, buy it</li>
-              <li>it cleans itself</li>
-              <li>made of grade AAA premium glass</li>
-            </ul>
+            $row[product_desc]
+
           </div>
         </div>
       </main>

@@ -163,3 +163,12 @@ button a:hover {
 a.text-muted.indented {
   padding-left: 20px;
 }
+
+/* Tables */
+.admin-table {
+  max-height: 530px;
+}
+
+.clickable-row { 
+  cursor: pointer; 
+}

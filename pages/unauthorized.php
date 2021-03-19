@@ -1,5 +1,5 @@
 <?php
 
-echo "No access <a href='authenticate.php'>Back to Login</a> ";
+echo "No access <a href='login.php'>Back to Login</a> ";
 
 ?>

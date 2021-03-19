@@ -10,6 +10,6 @@ function destroy_session_and_data(){
 	session_destroy();
 }
 
-header("Location: authenticate.php");
+header("Location: login.php");
 
 ?>

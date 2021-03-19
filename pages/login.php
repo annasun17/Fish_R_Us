@@ -16,14 +16,15 @@
     <form class="form-signin" method="POST" action="login.php">
       <img class="mb-4" src="../images/fish-logo.png" alt="" width="100" height="100">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <input type="text" id="username" class="form-control" placeholder="User name" name = "username" required autofocus>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name = "password" required>
+      <input type="text" id="username" class="form-control" placeholder="User name" name ="username" required autofocus>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="btn btn-lg btn-block" type="submit" style="background-color:#5ca6d8; color:white;">Sign in</button>
+      <button class="btn btn-lg btn-block" type="submit" value='Login' style="background-color:#5ca6d8; color:white;">Sign in</button>
     </form>
   </body>
 </html>
@@ -68,7 +69,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		session_start();
 		$_SESSION['user'] = $user;
 
-		header("Location: index.php");
+		header("Location: shop.php");
 	}
 	else
 	{

@@ -15,7 +15,7 @@ class User{
 				
 		$this->username = $username;
 		
-		$query="select * from credential where user_id ='$username' ";
+		$query="select * from user_table where user_id ='$username' ";
 		//echo $query.'<br>';  //for testing only
 		
 		$result = $conn->query($query);

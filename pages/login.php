@@ -44,7 +44,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	$tmp_password = mysql_entities_fix_string($conn, $_POST['password']); 
 	
 	//Retrieve password from DB w/SQL
-	$query = "SELECT password FROM credential WHERE user_id = '$tmp_username'";
+	$query = "SELECT password FROM user_table WHERE user_id = '$tmp_username'";
 	
 	$result = $conn->query($query);
 	if(!$result) die($conn->error);

@@ -106,7 +106,7 @@ include('header.php');
         <h2>Users</h2>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Add User</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.location.href='add-user.php';">Add User</button>
           </div>
           <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>

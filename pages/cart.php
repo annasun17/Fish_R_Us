@@ -8,45 +8,33 @@ include('header.php');
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="#">
+              <a class="nav-link" href="shop.php">
+                <span data-feather="bar-chart-2"></span>
+                All
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products-featured.php">
                 <span data-feather="bar-chart-2"></span>
                 Featured
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">
+              <a class="nav-link" href="products-fish.php">
                 <span data-feather="home"></span>
                 Fish
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="products-aquariums.php">
                 <span data-feather="file"></span>
                 Aquariums
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="products-supplies.php">
                 <span data-feather="shopping-cart"></span>
                 Supplies
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="users"></span>
-                Tank Accessories
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Vendors
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="layers"></span>
-                Stores
               </a>
             </li>
           </ul>

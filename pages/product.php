@@ -58,14 +58,14 @@ include('header.php');
             <div class="product-thumbnails">
             </div>
             <div class="active-img">
-              <img src="../images/product.jpeg" alt="product image">
+              <img src="../images/$row[imagepath]" alt="product image">
             </div>
           </div>
           <div class="col-md-5 product-desc">
             
           <h2 class="product-title">$row[product_name]</h2>
             <div class="price">$row[sales_price]</div>
-            <div class="flex-wrap align-items-center pt-4 pb-2 mb-3">
+              <div class="flex-wrap align-items-center pt-4 pb-2 mb-3">
               <select class="form-select me-3 mb-3" style="width: 5rem;">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -74,13 +74,12 @@ include('header.php');
                 <option value="5">5</option>
               </select>
               <p><a class="btn btn-primary" href="shop.php">Add to Cart</a></p>
-            </div>
+              </div>
             $row[product_desc]
-
-          </div>
+            </div>
         </div>
       </main>
-      _END;
+    _END;
       }
       $conn->close();
       ?>

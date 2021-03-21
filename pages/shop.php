@@ -82,7 +82,7 @@ include('header.php');
                 echo <<<_END
                 <div class="col-md-4">
                   <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src="../images/product.jpeg" alt="Card image">
+                    <img class="card-img-top" src="../images/$row[imagepath]" alt="Card image">
                     <div class="card-body">
                       <p class="card-text">$row[product_name]</p>
                       <div class="d-flex justify-content-between align-items-center">

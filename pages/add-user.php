@@ -135,7 +135,6 @@ if(isset($_POST['id'])) {
 	$result = $conn->query($query);
 	if(!$result) die($conn->error);
 
-	header("Location: admin.php");
 }
 $conn->close();
 

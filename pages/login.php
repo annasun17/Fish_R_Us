@@ -69,7 +69,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		session_start();
 		$_SESSION['user'] = $user;
 
-		header("Location: shop.php");
+		header("Location: index.php");
 	}
 	else
 	{

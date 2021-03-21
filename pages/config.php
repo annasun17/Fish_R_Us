@@ -1,8 +1,8 @@
 <?php
 
-$hn = 'localhost:8889';
+$hn = 'localhost:3306';
 $db = 'fish_r_us';
 $un = 'root';
-$pw = 'root';
+$pw = '';
 
 ?>

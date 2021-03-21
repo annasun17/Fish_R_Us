@@ -119,7 +119,7 @@ include('header.php');
           <thead>
             <tr>
               <th>User ID</th>
-              <th>User Name</th>
+              <th>Customer ID</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Address</th>
@@ -131,7 +131,7 @@ include('header.php');
             <?php
             $conn = new mysqli($hn, $un, $pw, $db);
             if($conn->connect_error) die ($conn->connect_error);
-            $query = "SELECT user_id, username, first_name, last_name, address, phone_number, user_role FROM user_table";
+            $query = "SELECT user_id, customer_id, first_name, last_name, address, phone_number, role FROM user_table";
             $result = $conn->query($query);
             if(!$result) die($conn->error);
             $rows = $result->num_rows;
@@ -141,12 +141,12 @@ include('header.php');
               echo <<<_END
               <tr class="clickable-row" onclick="window.location.href='user-details.php?uid=$row[user_id]';">
                 <td>$row[user_id]</td>
-                <td>$row[username]</td>
+                <td>$row[customer_id]</td>
                 <td>$row[first_name]</td>
                 <td>$row[last_name]</td>
                 <td>$row[address]</td>
                 <td>$row[phone_number]</td>
-                <td>$row[user_role]</td>
+                <td>$row[role]</td>
               </tr>
               _END;
             }

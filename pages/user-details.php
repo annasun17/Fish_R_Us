@@ -56,7 +56,7 @@ if(isset($_GET['uid'])) {
 	
 $id = $_GET['uid'];	
 
-$query = "SELECT * FROM user_table where user_id=$id ";
+$query = "SELECT * FROM user_table where user_id='$id' ";
 
 $result = $conn->query($query); 
 if(!$result) die($conn->error);
@@ -76,7 +76,7 @@ echo <<<_END
 			</div>
 
 			<p>User ID: $row[user_id]</p>
-			<p>Username: $row[username]</p>
+			<p>Customer ID: $row[customer_id]</p>
 			<p>First Name: $row[first_name]</p>
 			<p>Last Name: $row[last_name]</p>
 			<p>Address: $row[address]</p>

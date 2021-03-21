@@ -68,7 +68,7 @@ include('header.php');
           <thead>
             <tr>
               <th>Order ID</th>
-              <th>Customer ID</th>
+              <th>User ID</th>
               <th>Employee ID</th>
               <th>Store ID</th>
               <th>Purchase Date</th>
@@ -79,7 +79,7 @@ include('header.php');
             <?php
             $conn = new mysqli($hn, $un, $pw, $db);
             if($conn->connect_error) die ($conn->connect_error);
-            $query = "SELECT customer_id, employee_id, store_id, purchase_date, order_id, invoice_id FROM order_table";
+            $query = "SELECT user_id, employee_id, store_id, purchase_date, order_id, invoice_id FROM order_table";
             $result = $conn->query($query);
             if(!$result) die($conn->error);
             $rows = $result->num_rows;
@@ -89,7 +89,7 @@ include('header.php');
               echo <<<_END
               <tr class="clickable-row" onclick="window.location.href='order-details.php?id=$row[order_id]';">
                 <td>$row[order_id]</td>
-                <td>$row[customer_id]</td>
+                <td>$row[user_id]</td>
                 <td>$row[employee_id]</td>
                 <td>$row[store_id]</td>
                 <td>$row[purchase_date]</td>

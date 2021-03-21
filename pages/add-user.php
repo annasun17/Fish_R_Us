@@ -127,9 +127,10 @@ if(isset($_POST['id'])) {
 	$phone = $_POST['phone'];
 	$pass = $_POST['pass'];
 	$urole = $_POST['urole'];
+	$token = password_hash($password,PASSWORD_DEFAULT);
 
 	$query = "INSERT into user_table (username, user_id, first_name, last_name, address, phone_number, password, user_role)
-	values ('$uname', '$id', '$fname', '$lname', '$addr', '$phone', '$pass', '$urole')";
+	values ('$uname', '$id', '$fname', '$lname', '$addr', '$phone', '$token', '$urole')";
 
 	$result = $conn->query($query);
 	if(!$result) die($conn->error);

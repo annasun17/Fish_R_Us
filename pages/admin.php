@@ -131,7 +131,7 @@ include('header.php');
             <?php
             $conn = new mysqli($hn, $un, $pw, $db);
             if($conn->connect_error) die ($conn->connect_error);
-            $query = "SELECT user_id, customer_id, first_name, last_name, address, phone_number, role FROM user_table";
+            $query = "SELECT username, user_id, first_name, last_name, address, phone_number, password, user_role FROM user_table";
             $result = $conn->query($query);
             if(!$result) die($conn->error);
             $rows = $result->num_rows;
@@ -140,13 +140,13 @@ include('header.php');
               $row = $result->fetch_array(MYSQLI_ASSOC);
               echo <<<_END
               <tr class="clickable-row" onclick="window.location.href='user-details.php?uid=$row[user_id]';">
+                <td>$row[username]</td>
                 <td>$row[user_id]</td>
-                <td>$row[customer_id]</td>
                 <td>$row[first_name]</td>
                 <td>$row[last_name]</td>
                 <td>$row[address]</td>
                 <td>$row[phone_number]</td>
-                <td>$row[role]</td>
+                <td>$row[user_role]</td>
               </tr>
               _END;
             }

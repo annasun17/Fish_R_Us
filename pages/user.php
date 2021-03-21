@@ -15,7 +15,7 @@ class User{
 				
 		$this->username = $username;
 		
-		$query="select * from user_table where user_id ='$username' ";
+		$query="select * from user_table where username ='$username' ";
 		//echo $query.'<br>';  //for testing only
 		
 		$result = $conn->query($query);
@@ -27,7 +27,7 @@ class User{
 		for($i=0; $i<$rows; $i++){
 			$row = $result->fetch_array(MYSQLI_ASSOC);
 			//echo $row['role']; echo '<br>';
-			$role[] = $row['role'];
+			$role[] = $row['user_role'];
 		}	
 					
 		$this->role = $role;

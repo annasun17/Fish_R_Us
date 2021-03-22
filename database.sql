@@ -1,27 +1,61 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 21, 2021 at 10:14 PM
--- Server version: 8.0.21
--- PHP Version: 7.3.21
+-- Host: localhost:8889
+-- Generation Time: Mar 22, 2021 at 02:41 AM
+-- Server version: 5.7.32
+-- PHP Version: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `fish_r_us`
 --
-CREATE DATABASE IF NOT EXISTS `fish_r_us` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `fish_r_us` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `fish_r_us`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `credential`
+--
+
+DROP TABLE IF EXISTS `credential`;
+CREATE TABLE `credential` (
+  `user_id` varchar(32) NOT NULL,
+  `role` varchar(32) NOT NULL,
+  `password` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `credential`
+--
+
+INSERT INTO `credential` (`user_id`, `role`, `password`) VALUES
+('bsmith', 'user', '$2y$10$AbXqg2C7a5gpuiQP08flJeq46YNrmVPFSogx6C0VlIEpdfo3TYToO'),
+('cjohnson', 'user', '$2y$10$Rrgemjs/DOWl4W3hcXtL0.Bp5ECpxDFWX1OYg7kPZZGN.18wyIoqe'),
+('hbrown', 'user', '$2y$10$yDsyahnXyRbmgO7JOagPIe/hyEJPxC.Z8B9wfoyvljQ9d.CQhgSve'),
+('mjones', 'user', '$2y$10$KGSS.DLTD5mdUTCY1bgcXO9c9DXzGQwKWQIx0.vhkJHO0WsGMZtr2'),
+('jgarcia', 'user', '$2y$10$mc6ydP4IVVMK3bOppizdTOuuWpPyUmvo4l4V75KxkFG3CxILsM6.C'),
+('cmiller', 'user', '$2y$10$zXKou2l61MODioJVNAz/1.6jN.bnmrZZEea5bt0sTImeAugyCbdTC'),
+('ndavis', 'user', '$2y$10$/pyIidWexACX75G8A9Nr6.vbRtdkXZoHFJMSErWXjtPyo5X4ZKLXW'),
+('jrodriguez', 'user', '$2y$10$P6Ks4Kr5/FghUw6nKTE/3.oiO7tMRZvMXtrjCkth13Gtr9Yudz8F.'),
+('pmartinez', 'user', '$2y$10$CFJWygVce3ovpTJ36wLNi.c9Zfis2WZcpD9h4bfYjKYvSE1Ngnpty'),
+('pbar', 'user', '$2y$10$TNLLy8EKl7cO.65ZgtP/d.9NaOv4hFd8AECmPDnsuAWU87mf5OBMm'),
+('tlabine', 'user', '$2y$10$WdvdQHeBhfIAv1MgamfYfuJAaVKQEbWJV9R1rxagPNNEEVRENC7Sy'),
+('vtabor', 'user', '$2y$10$lm0h2j5OgTWmn.dtTMq8NutOhkMzmk1KYJlT5ln0Iwydz.Gsm5TxC'),
+('ctahir', 'user', '$2y$10$DUiNA4uLyDyigdTIQzRys.E4HnbrUyhxBcG0wxlT.EEO0eSqnminq'),
+('wvaccari', 'user', '$2y$10$VH1p9R37MemFftKLJAxoN.KqkUjyGpreTBFyyv0bNral2H3A657je'),
+('ssmith', 'user', '$2y$10$4ERx05VepUh33YLEhXStoOVjUd11wF8taK2bwGJ8Wwi9T7PLh9ep.'),
+('pdavis', 'user', '$2y$10$DKGRDIgiaklX6o9aqi2PnOQmTuDV.IYk8voDg/hzHNyI3cudY5Yo2'),
+('abartholio', 'user', '$2y$10$NrtXYdXhVXooE6lPEUjr0uqL509Ro1yafZ9jg.v22hS7fABNu82lO'),
+('sponder', 'user', '$2y$10$sCbPLIW/CjF8EV89g6mabOMIcmuepz8y8w5paQlLcy1E6ly8nt7My'),
+('jherman', 'user', '$2y$10$F85qTwjI5w6ZXLJnDwA4XOnppBsq6MwnR0G3grZqoL0xDcv3SXsp.'),
+('dcamit', 'user', '$2y$10$uiWobRPFF.OafcRuLFWHdeWxFuUgoY.X7Dao7Rfda8h9NXPAHsHk6'),
+('readie', 'user', '$2y$10$8hh59eMQ7sov5nucQr/XUeKpig8f.6lOJg/TbkRG4jYr0Cr0/iOB2'),
+('admin', 'admin', '$2y$10$8eI0XPlZCev5wnlKDumHBOf1UJdZX9tO9FHN7TGP72N1/C73HodTq');
 
 -- --------------------------------------------------------
 
@@ -30,15 +64,14 @@ USE `fish_r_us`;
 --
 
 DROP TABLE IF EXISTS `employee`;
-CREATE TABLE IF NOT EXISTS `employee` (
+CREATE TABLE `employee` (
   `employee_id` varchar(100) NOT NULL,
   `last_name` text NOT NULL,
   `first_name` text NOT NULL,
   `employee_title` text NOT NULL,
   `store_id` varchar(100) NOT NULL,
-  `user_id` varchar(128) NOT NULL,
-  PRIMARY KEY (`employee_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `user_id` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `employee`
@@ -46,14 +79,6 @@ CREATE TABLE IF NOT EXISTS `employee` (
 
 INSERT INTO `employee` (`employee_id`, `last_name`, `first_name`, `employee_title`, `store_id`, `user_id`) VALUES
 ('1', 'Franks', 'Erik', 'Manager', '101', ''),
-('2', 'Smith', 'Mitchell', 'Manager', '102', ''),
-('3', 'Brown', 'Karly', 'Manager', '103', ''),
-('4', 'Ballard', 'Jim', 'Manager', '104', ''),
-('5', 'Johnson', 'Jessica', 'Manager', '105', ''),
-('6', 'Carr', 'Michelle', 'Stocker', '101', ''),
-('7', 'Kolbe', 'Kyle', 'Stocker', '102', ''),
-('8', 'Waterlynn', 'Jake', 'Stocker', '103', ''),
-('9', 'Colpa', 'Katlyn', 'Stocker', '104', ''),
 ('10', 'Siedel', 'Natalie', 'Stocker', '105', ''),
 ('11', 'Carson', 'Kenny', 'Cashier', '101', ''),
 ('12', 'Fredericks', 'Ethan', 'Cashier', '102', ''),
@@ -64,7 +89,15 @@ INSERT INTO `employee` (`employee_id`, `last_name`, `first_name`, `employee_titl
 ('17', 'Bauer', 'Nicholas', 'Sales Floor', '102', ''),
 ('18', 'Gardner', 'Brian', 'Sales Floor', '103', ''),
 ('19', 'Lawrence', 'Karen', 'Sales Floor', '104', ''),
-('20', 'Lyle', 'Gray', 'Sales Floor', '105', '');
+('2', 'Smith', 'Mitchell', 'Manager', '102', ''),
+('20', 'Lyle', 'Gray', 'Sales Floor', '105', ''),
+('3', 'Brown', 'Karly', 'Manager', '103', ''),
+('4', 'Ballard', 'Jim', 'Manager', '104', ''),
+('5', 'Johnson', 'Jessica', 'Manager', '105', ''),
+('6', 'Carr', 'Michelle', 'Stocker', '101', ''),
+('7', 'Kolbe', 'Kyle', 'Stocker', '102', ''),
+('8', 'Waterlynn', 'Jake', 'Stocker', '103', ''),
+('9', 'Colpa', 'Katlyn', 'Stocker', '104', '');
 
 -- --------------------------------------------------------
 
@@ -73,14 +106,13 @@ INSERT INTO `employee` (`employee_id`, `last_name`, `first_name`, `employee_titl
 --
 
 DROP TABLE IF EXISTS `inventory`;
-CREATE TABLE IF NOT EXISTS `inventory` (
+CREATE TABLE `inventory` (
   `inventory_id` varchar(100) NOT NULL,
   `product_id` varchar(100) NOT NULL,
   `store_id` varchar(100) NOT NULL,
   `stock_date` date NOT NULL,
-  `stock_quantity` int NOT NULL,
-  PRIMARY KEY (`inventory_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `stock_quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `inventory`
@@ -116,11 +148,11 @@ INSERT INTO `inventory` (`inventory_id`, `product_id`, `store_id`, `stock_date`,
 --
 
 DROP TABLE IF EXISTS `orderline`;
-CREATE TABLE IF NOT EXISTS `orderline` (
+CREATE TABLE `orderline` (
   `order_id` varchar(100) NOT NULL,
   `product_id` varchar(100) NOT NULL,
-  `quantity` int NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `orderline`
@@ -157,21 +189,20 @@ INSERT INTO `orderline` (`order_id`, `product_id`, `quantity`) VALUES
 --
 
 DROP TABLE IF EXISTS `order_table`;
-CREATE TABLE IF NOT EXISTS `order_table` (
-  `customer_id` varchar(100) NOT NULL,
+CREATE TABLE `order_table` (
+  `user_id` varchar(100) NOT NULL,
   `employee_id` varchar(100) NOT NULL,
   `store_id` varchar(100) NOT NULL,
   `purchase_date` date NOT NULL,
   `order_id` varchar(100) NOT NULL,
-  `invoice_id` varchar(100) NOT NULL,
-  PRIMARY KEY (`order_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `invoice_id` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_table`
 --
 
-INSERT INTO `order_table` (`customer_id`, `employee_id`, `store_id`, `purchase_date`, `order_id`, `invoice_id`) VALUES
+INSERT INTO `order_table` (`user_id`, `employee_id`, `store_id`, `purchase_date`, `order_id`, `invoice_id`) VALUES
 ('10000', '3', '103', '2021-02-14', '2000', '1000001'),
 ('10005', '14', '104', '2021-02-17', '2001', '1000002'),
 ('10014', '15', '105', '2021-02-24', '2002', '1000003'),
@@ -190,7 +221,7 @@ INSERT INTO `order_table` (`customer_id`, `employee_id`, `store_id`, `purchase_d
 --
 
 DROP TABLE IF EXISTS `product`;
-CREATE TABLE IF NOT EXISTS `product` (
+CREATE TABLE `product` (
   `product_id` varchar(100) NOT NULL,
   `product_name` varchar(100) NOT NULL,
   `product_type` varchar(100) NOT NULL,
@@ -199,9 +230,8 @@ CREATE TABLE IF NOT EXISTS `product` (
   `sales_price` decimal(10,2) NOT NULL,
   `imagepath` varchar(256) DEFAULT NULL,
   `product_desc` varchar(512) NOT NULL,
-  `featured` tinyint(1) NOT NULL,
-  PRIMARY KEY (`product_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `featured` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
@@ -237,14 +267,13 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_type`, `vendor_id`
 --
 
 DROP TABLE IF EXISTS `return_table`;
-CREATE TABLE IF NOT EXISTS `return_table` (
+CREATE TABLE `return_table` (
   `return_id` varchar(100) NOT NULL,
   `date` date NOT NULL,
   `order_id` varchar(100) NOT NULL,
   `invoice_id` varchar(100) NOT NULL,
-  `quantity` int NOT NULL,
-  PRIMARY KEY (`return_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `return_table`
@@ -264,12 +293,11 @@ INSERT INTO `return_table` (`return_id`, `date`, `order_id`, `invoice_id`, `quan
 --
 
 DROP TABLE IF EXISTS `shipment`;
-CREATE TABLE IF NOT EXISTS `shipment` (
+CREATE TABLE `shipment` (
   `shipment_id` varchar(100) NOT NULL,
   `order_id` varchar(100) NOT NULL,
-  `ship_date` date NOT NULL,
-  PRIMARY KEY (`shipment_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `ship_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `shipment`
@@ -294,13 +322,12 @@ INSERT INTO `shipment` (`shipment_id`, `order_id`, `ship_date`) VALUES
 --
 
 DROP TABLE IF EXISTS `store`;
-CREATE TABLE IF NOT EXISTS `store` (
+CREATE TABLE `store` (
   `store_id` varchar(100) NOT NULL,
   `store_address` varchar(100) NOT NULL,
   `store_hours` varchar(32) NOT NULL,
-  `store_type` text NOT NULL,
-  PRIMARY KEY (`store_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `store_type` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `store`
@@ -320,26 +347,24 @@ INSERT INTO `store` (`store_id`, `store_address`, `store_hours`, `store_type`) V
 --
 
 DROP TABLE IF EXISTS `user_table`;
-CREATE TABLE IF NOT EXISTS `user_table` (
-  `user_id` varchar(128) NOT NULL,
-  `customer_id` varchar(100) NOT NULL,
+CREATE TABLE `user_table` (
+  `username` varchar(128) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
   `first_name` text NOT NULL,
   `last_name` text NOT NULL,
   `address` varchar(100) NOT NULL,
-  `phone_number` bigint NOT NULL,
+  `phone_number` bigint(20) NOT NULL,
   `password` varchar(128) NOT NULL,
-  `role` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `user_role` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_table`
 --
 
-INSERT INTO `user_table` (`user_id`, `customer_id`, `first_name`, `last_name`, `address`, `phone_number`, `password`, `role`) VALUES
+INSERT INTO `user_table` (`username`, `user_id`, `first_name`, `last_name`, `address`, `phone_number`, `password`, `user_role`) VALUES
 ('bsmith', '10000', 'Benjamin', 'Smith', '152 Yikes St Blanksville, UT', 555876954, '$2y$10$1rs6ZRXTRVj0burP41xlseXVzwYqT49tfVgHOs8Sao0DU7.3jtVae', 'user'),
 ('cjohnson', '10001', 'Clarice', 'Johnson', '524 Lilly Ave Alton, UT', 5556843210, '$2y$10$l0ibYFJYhH5JqKAYhui1du.Dmb8aoq8jcfxs7cRy8OL2zx8aNx5Sy', 'user'),
-('hbrown', '10002', 'Hazel', 'Brown', '878 Hickory Provo, UT', 5557419654, '$2y$10$vprqrmkZdevTQddJPv2GF.j4EoxiTJpzDZqfNMmYq8MQQBTGlwyua', 'user'),
-('mjones', '10003', 'Mathew', 'Jones', '1 Garfield Way Saltlake City, UT', 5553269854, '$2y$10$vA9lbheHIw4ngMiDSe2BFeXXigi1/deX.GYQjGMoi7250gGIASwU2', 'user'),
 ('jgarcia', '10004', 'Jane', 'Garcia', '525 W 452 S Clearly, UT', 5551597532, '$2y$10$QMefsjCvFAIlZzGpRBUCOuKiIsWWQJu7zmpUvZAbRz/BkjVP98fAm', 'user'),
 ('cmiller', '10005', 'Cory', 'Miller', '234 E 584 S SaltLake City, UT', 5554658741, '$2y$10$I4X.pwBSEJX3RrmoUAqxW.5gJ5b0XG35NLLLk073hd2Yj/dCIIcJe', 'user'),
 ('ndavis', '10006', 'Natashia', 'Davis', '125 E 14 W Sandy, UT', 5552589654, '$2y$10$POTKCPq2k0FfjLFwwYQHC.J9XtIXUAH4uMQ6bovoDzRTO6GxHRN9O', 'user'),
@@ -355,8 +380,8 @@ INSERT INTO `user_table` (`user_id`, `customer_id`, `first_name`, `last_name`, `
 ('sponder', '10017', 'Steven', 'Ponder', '56 West Cir Saltlake City, UT', 5557985124, '$2y$10$gA3kChK4Sx7Kh6fADGlYdeLCRrvD6A4QjZmjsb.Nhu2ujvpqzmjES', 'user'),
 ('jherman', '10018', 'Jason', 'Herman', '68 Windy Way St George, UT', 5553965842, '$2y$10$9D4YGpVu1lHseH.VDoMYieeVX9WfCclNGC3uAErG2UITA0p/zxOG2', 'user'),
 ('dcamit', '10019', 'Daniel', 'Camit', '13 Humbolt Cir American Fork, UT', 5558789546, '$2y$10$6G/dDV0cPYSX5HJzDto4vex1y2mGU1OK820GGivamY6eQn0LfQ15O', 'user'),
-('readie', '10020', 'Robert', 'Eadie', '152 W Cir Provo, UT', 5558793252, '$2y$10$tTVb7H3Ax.QKmIc6OjuzbuTs8OnUlgnO9po/enOCXyeVOTvF82smC', 'user'),
-('admin', '00000', 'Administrator', 'Jones', 'Headquarters', 0, '$2y$10$mCLupXx9qdoiSG.FjxdsueV.NjgC/15gsQRUVwRAlacBfW2MhZaoi', 'admin');
+('admin', '00000', 'Administrator', 'Jones', 'Headquarters', 0, '$2y$10$mCLupXx9qdoiSG.FjxdsueV.NjgC/15gsQRUVwRAlacBfW2MhZaoi', 'admin'),
+('asun', '10021', 'Anna', 'Sun', '4 privet drive', 4355599558, '$2y$10$sXBjDzwyUrVsS4hq.dB9k.ywdMri7bML2eds.RVoeaYOczXCUVD0O', 'admin');
 
 -- --------------------------------------------------------
 
@@ -365,12 +390,11 @@ INSERT INTO `user_table` (`user_id`, `customer_id`, `first_name`, `last_name`, `
 --
 
 DROP TABLE IF EXISTS `vendor`;
-CREATE TABLE IF NOT EXISTS `vendor` (
+CREATE TABLE `vendor` (
   `vendor_id` varchar(100) NOT NULL,
   `vendor_name` varchar(100) NOT NULL,
-  `vendor_address` varchar(128) NOT NULL,
-  PRIMARY KEY (`vendor_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `vendor_address` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `vendor`
@@ -380,8 +404,55 @@ INSERT INTO `vendor` (`vendor_id`, `vendor_name`, `vendor_address`) VALUES
 ('1', 'Glass Box Supply Co.', ' 585 Main Street Los Angeles CA'),
 ('2', 'Fishmonger, Inc.', 'PO Box 30352 Hunstville AL'),
 ('3', 'Stuff 4 Fishes', ' 1950 S 4500 W Salt Lake City UT');
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`employee_id`);
+
+--
+-- Indexes for table `inventory`
+--
+ALTER TABLE `inventory`
+  ADD PRIMARY KEY (`inventory_id`);
+
+--
+-- Indexes for table `order_table`
+--
+ALTER TABLE `order_table`
+  ADD PRIMARY KEY (`order_id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`product_id`);
+
+--
+-- Indexes for table `return_table`
+--
+ALTER TABLE `return_table`
+  ADD PRIMARY KEY (`return_id`);
+
+--
+-- Indexes for table `shipment`
+--
+ALTER TABLE `shipment`
+  ADD PRIMARY KEY (`shipment_id`);
+
+--
+-- Indexes for table `store`
+--
+ALTER TABLE `store`
+  ADD PRIMARY KEY (`store_id`);
+
+--
+-- Indexes for table `vendor`
+--
+ALTER TABLE `vendor`
+  ADD PRIMARY KEY (`vendor_id`);

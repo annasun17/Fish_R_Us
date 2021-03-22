@@ -48,7 +48,7 @@ include('header.php');
           <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
               <button type="button" class="btn btn-sm btn-outline-secondary">Favorites</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary"><a href="cart.php">View Cart</a></button>
+              <a href="cart.php" class="btn btn-sm btn-outline-secondary">View Cart</a>
             </div>
             <div class="dropdown">
               <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -87,8 +87,8 @@ include('header.php');
                       <p class="card-text">$row[product_name]</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <button class="btn btn-sm btn-outline-secondary"><a href="product.php?product_id=$row[product_id]">View</a></button>
-                          <button class="btn btn-sm btn-outline-secondary"><a href="#">Add to Cart</a></button>
+                          <a href="product.php?product_id=$row[product_id]" class="btn btn-sm btn-outline-secondary">View</a>
+                          <a href="#" class="btn btn-sm btn-outline-secondary">Add to Cart</a>
                         </div>
                         <small class="text-muted">$row[sales_price]</small>
                       </div>

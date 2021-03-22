@@ -9,37 +9,37 @@ require_once 'config.php';
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="#orders">
+              <a class="nav-link active" href="admin.php#orders">
                 <span data-feather="file"></span>
                 Orders
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#users">
+              <a class="nav-link" href="admin.php#users">
                 <span data-feather="shopping-cart"></span>
                 Users
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#inventory">
+              <a class="nav-link" href="admin.php#inventory">
                 <span data-feather="users"></span>
                 Inventory
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#vendors">
+              <a class="nav-link" href="admin.php#vendors">
                 <span data-feather="bar-chart-2"></span>
                 Vendors
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#stores">
+              <a class="nav-link" href="admin.php#stores">
                 <span data-feather="layers"></span>
                 Stores
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#employees">
+              <a class="nav-link" href="admin.php#employees">
                 <span data-feather="layers"></span>
                 Employees
               </a>
@@ -76,7 +76,7 @@ echo <<<_END
 			</div>
 
 			<p>Order ID: $row[order_id]</p>
-			<p>Customer ID: $row[customer_id]</p>
+			<p>User ID: $row[user_id]</p>
 			<p>Purchase Date: $row[purchase_date]</p>
 			<p>Employee ID: $row[employee_id]</p>
 			<p>Store ID: $row[store_id]</p>

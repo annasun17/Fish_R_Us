@@ -9,37 +9,37 @@ require_once 'config.php';
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="#orders">
+              <a class="nav-link" href="admin.php#orders">
                 <span data-feather="file"></span>
                 Orders
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#users">
+              <a class="nav-link active" href="admin.php#users">
                 <span data-feather="shopping-cart"></span>
                 Users
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#inventory">
+              <a class="nav-link" href="admin.php#inventory">
                 <span data-feather="users"></span>
                 Inventory
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#vendors">
+              <a class="nav-link" href="admin.php#vendors">
                 <span data-feather="bar-chart-2"></span>
                 Vendors
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#stores">
+              <a class="nav-link" href="admin.php#stores">
                 <span data-feather="layers"></span>
                 Stores
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#employees">
+              <a class="nav-link" href="admin.php#employees">
                 <span data-feather="layers"></span>
                 Employees
               </a>
@@ -68,15 +68,21 @@ echo <<<_END
 			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 				<h2>User Details</h2>
 				<div class="btn-toolbar mb-2 mb-md-0">
-					<button type="button" class="btn btn-sm btn-outline-secondary">
-						<span data-feather="calendar"></span>
-						Edit User
-					</button>
+          <div class="btn-group me-2">
+            <a href="edit-user.php?id=$row[user_id]" class="btn btn-sm btn-outline-secondary">Edit User</a>
+          </div>
+          <div class="btn-group me-2">
+            <form action="delete.php" method="post">
+              <input type="hidden" name="delete" value="yes">
+              <input type="hidden" name="id" value="$row[user_id]">
+              <input type="submit" class="btn btn-sm btn-outline-secondary" value="Delete User">
+            </form>
+          </div>
 				</div>
 			</div>
 
 			<p>User ID: $row[user_id]</p>
-			<p>Customer ID: $row[customer_id]</p>
+			<p>Username: $row[username]</p>
 			<p>First Name: $row[first_name]</p>
 			<p>Last Name: $row[last_name]</p>
 			<p>Address: $row[address]</p>

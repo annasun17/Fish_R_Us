@@ -65,7 +65,7 @@ require_once 'config.php';
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="cart.php">Shopping Cart (2)</a>
+                <a class="nav-link" href="cart.php">Shopping Cart</a>
               </li>
             </ul>
           </form>

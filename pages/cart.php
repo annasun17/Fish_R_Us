@@ -115,20 +115,20 @@ include('header.php');
                   </div>
                 </div>
                 <div class="d-flex align-items-center pb-2 border-bottom"><a class="d-block flex-shrink-0"
-                  href="product.php"><img src="../images/product.jpeg" width="64" alt="Product"></a>
+                  href="product.php"><img src="../images/betta.jpg" width="64" alt="Product"></a>
                 <div class="ps-2">
-                  <h6 class="widget-product-title"><a href="product.php">Large Fish Tank</a></h6>
-                  <div class="widget-product-meta"><span class="text-accent me-2">$29.<small>99</small></span><span
+                  <h6 class="widget-product-title"><a href="product.php">Beta Fish</a></h6>
+                  <div class="widget-product-meta"><span class="text-accent me-2">$5.<small>00</small></span><span
                       class="text-muted">x 1</span></div>
                 </div>
               </div>
                 <ul class="list-unstyled fs-sm pt-4 pb-2 border-bottom">
                   <li class="d-flex justify-content-between align-items-center"><span class="me-2">Subtotal:</span><span
-                      class="text-end fw-medium">$59.<small>98</small></span></li>
+                      class="text-end fw-medium">$34.<small>99</small></span></li>
                   <li class="d-flex justify-content-between align-items-center"><span class="me-2">Delivery:</span><span
                       class="text-end fw-medium">$7.<small>00</small></span></li>
                 </ul>
-                <h3 class="fw-normal text-center my-4 py-2">$66.<small>98</small></h3>
+                <h3 class="fw-normal text-center my-4 py-2">$41.<small>99</small></h3>
                 <div class="accordion accordio-flush shadow-sm rounded-3 mb-4" id="payment-methods">
                   <div class="accordion-item border-bottom">
                     <div class="accordion-header py-3 px-3">

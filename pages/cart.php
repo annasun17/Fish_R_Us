@@ -49,6 +49,18 @@ include('header.php');
         <form class="needs-validation" novalidate="">
           <div class="row g-0 pb-5 mb-xl-3">
 
+<?php 
+$conn = new mysqli($hn, $un, $pw, $db);
+if($conn->connect_error) die($conn->connect_error);
+
+$query = "SELECT * FROM user_table where username='$username' ";
+
+$result = $conn->query($query); 
+if(!$result) die($conn->error);
+$row = $result->fetch_array(MYSQLI_ASSOC);
+
+echo <<<_END
+
             <!-- Delivery details-->
             <div class="col-xl-6 mb-3">
               <h2 class="h5 mb-4">Delivery details</h2>
@@ -65,17 +77,17 @@ include('header.php');
               <div class="row gx-4 gy-3">
                 <div class="col-sm-6">
                   <label class="form-label" for="co-fn">First name <span class="text-danger">*</span></label>
-                  <input class="form-control" type="text" id="co-fn" required="">
+                  <input class="form-control" type="text" id="co-fn" required="" value=$row[first_name]>
                   <div class="invalid-feedback">Please enter your first name!</div>
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label" for="co-ln">Last name <span class="text-danger">*</span></label>
-                  <input class="form-control" type="text" id="co-ln" required="">
+                  <input class="form-control" type="text" id="co-ln" required="" value=$row[last_name]>
                   <div class="invalid-feedback">Please enter your last name!</div>
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label" for="co-ln">Phone number <span class="text-danger">*</span></label>
-                  <input class="form-control" type="tel" id="co-phone" required="">
+                  <input class="form-control" type="tel" id="co-phone" required="" value=$row[phone_number]>
                   <div class="invalid-feedback">Please enter your phone number!</div>
                 </div>
                 <div class="col-sm-6">
@@ -101,6 +113,8 @@ include('header.php');
                 </div>
               </div>
             </div>
+_END;
+?>
 
             <!-- Order summary + payment-->
             <div class="col-xl-5 offset-xl-1 mb-2">

@@ -3,8 +3,7 @@ include('header.php');
 require_once 'config.php';
 ?>
 
-<div class="container-fluid">
-
+    <div class="container-fluid">
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
@@ -47,7 +46,14 @@ require_once 'config.php';
           </ul>
         </div>
       </nav>
-
+      
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">				
+        
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h2>Order Details</h2>
+          <div class="btn-toolbar mb-2 mb-md-0">
+          </div>
+        </div>
 <?php
 $conn = new mysqli($hn, $un, $pw, $db);
 if($conn->connect_error) die($conn->connect_error);
@@ -56,35 +62,35 @@ if(isset($_GET['id'])) {
 	
 $id = $_GET['id'];	
 
-$query = "SELECT * FROM order_table where order_id=$id ";
+$query = "SELECT * FROM order_table INNER JOIN orderline ON order_table.order_id = orderline.order_id
+WHERE orderline.order_id=$id ";
 
 $result = $conn->query($query); 
 if(!$result) die($conn->error);
-$row = $result->fetch_array(MYSQLI_ASSOC); 
+$rows = $result->num_rows;
 
-echo <<<_END
-		<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">				
-			
-			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-				<h2>Order Details</h2>
-				<div class="btn-toolbar mb-2 mb-md-0">
-					<button type="button" class="btn btn-sm btn-outline-secondary">
-						<span data-feather="calendar"></span>
-						Edit
-					</button>
-				</div>
-			</div>
+  for($j=0; $j<$rows; ++$j) {
+    $row = $result->fetch_array(MYSQLI_ASSOC);
 
-			<p>Order ID: $row[order_id]</p>
-			<p>User ID: $row[user_id]</p>
-			<p>Purchase Date: $row[purchase_date]</p>
-			<p>Employee ID: $row[employee_id]</p>
-			<p>Store ID: $row[store_id]</p>
-			<p>Invoice ID: $row[invoice_id]</p>
 
-    </main>
-_END;
+    echo <<<_END
+        <p>Order ID: $row[order_id]</p>
+        <p>User ID: $row[user_id]</p>
+        <p>Purchase Date: $row[purchase_date]</p>
+        <p>Employee ID: $row[employee_id]</p>
+        <p>Store ID: $row[store_id]</p>
+        <p>Invoice ID: $row[invoice_id]</p>
+        <p>Product ID: $row[product_id]</p>
+        <p>Quantity: $row[quantity]</p>
+        <br>
+    _END;
+  }
 }
+?>
+      </main>
+    </div>
+
+<?php
 include('footer.php');
 ?>
 
